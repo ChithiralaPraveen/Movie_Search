@@ -5,9 +5,9 @@
   box-sizing: border-box;
 }
 :root{
-  --background-color:#0f172a;
+  --background-color:#15dfc4;
   --primary-textcolor:#e2e8f0;
-  --card-bg-color:#475569;
+  --card-bg-color:#1be9e9;
 }
 body{
   background-color:var(--background-color);
@@ -31,4 +31,20 @@ body{
   gap: 1.5rem;
   flex-wrap: wrap;
   padding: 8rem, 2rem, 3rem ,6rem;
+}
+.container
+{
+  max-width: 1160px;
+    max-height: 273px;
+    margin-right: -19%;
+}
+
+a.btn.btn-warning {
+  margin-left: 271%;
+}
+a.btn.btn-dark {
+  margin-left: 511%;
+}
+h1.heading-1 {
+  margin-left: 11%;
 }
