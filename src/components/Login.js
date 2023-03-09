@@ -57,6 +57,10 @@ function Login() {
       <div className="error">{errorMessages.message}</div>
     );
 
+    const renderSuccess = (
+      <div>User is successfully logged in</div>
+    )
+
   // JSX code for login form
   const renderForm = (
     <div className="form">
@@ -82,7 +86,7 @@ function Login() {
     <div className="Login">
       <div className="login-form">
         <div className="title">Sign In</div>
-        {isSubmitted ? <div>User is successfully logged in</div> : renderForm}
+        {isSubmitted ? renderSuccess : renderForm}
       </div>
     </div>
   );

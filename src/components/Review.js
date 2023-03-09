@@ -1,7 +1,26 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom/dist';
 
  const Review = () => {
+
+    let navigate = useNavigate();
+    const SubmitReview = () => {        
+        const isLoggined = false;
+
+        if(isLoggined)
+        {
+            alert("Thanks review submitted");
+            navigate('/MovieDashboard');
+        }else
+        {
+            alert("Please login");
+            navigate('/login');
+        }
+        
+    }
+
+
   const location = useLocation();
   const {name, imdb_rating, genre, duration, img_link} = location.state;
   return (
@@ -27,10 +46,10 @@ import { useLocation } from 'react-router-dom';
         </div>
         </div>
         <label>
-                <span>Review</span>
+                <span>Put your comments here : </span>
                 <input type="Text" name="review"></input>
                 <div>
-                <button>Submit</button>
+                <button onClick={SubmitReview}>Submit</button>
                 </div>
             </label>
 

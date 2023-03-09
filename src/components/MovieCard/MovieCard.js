@@ -18,7 +18,7 @@ export const MovieCard=({movie})=>{
                 <span className="genre">Genre:{genre} </span>
             </div>
             <div className="ratings"> 
-                <span>Rating: {imdb_rating}</span>
+                <span>Rating : {imdb_rating}</span>
                 <span>{duration} mins</span>
                 <Link type="button" className="btn btn-primary " state={{name: name, imdb_rating: imdb_rating, genre:genre,
                 duration: duration, img_link: img_link}} to='/Review'>Review</Link>
