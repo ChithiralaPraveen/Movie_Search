@@ -10,8 +10,10 @@ const Review = () => {
         }
     const [reviewData, SetreviewData] = useState([]);
     function reviewOnchange(e) { SetreviewData(e.target.value); }
+    
 
-    const SubmitReview = () => {
+    const SubmitReview = (moviename) => {
+        
         let isLoggedIn = false
         localStorage.getItem('isLoggedIn') === 'True' ? isLoggedIn=true : isLoggedIn=false ;
         if (isLoggedIn) {
@@ -21,6 +23,7 @@ const Review = () => {
                 body: JSON.stringify(
                     {
                         Reviewdata: reviewData,
+                        Moviename: moviename,
                         Reviewdate : new Date(),
                         Username :localStorage.getItem('Username')
                     })
@@ -69,7 +72,7 @@ const Review = () => {
                     <span>Put your comments here : </span>
                     <input autoFocus value={reviewData} onChange={reviewOnchange} type="Text" name="review"></input>
                     <div>
-                        <button onClick={SubmitReview}>Submit</button>
+                        <button onClick={()=>SubmitReview(name)}>Submit</button>
 
                     </div>
                 </label>

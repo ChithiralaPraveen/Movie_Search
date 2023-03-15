@@ -23,6 +23,10 @@ function Login() {
     {
       username: "user2",
       password: "pass2"
+    },
+    {
+      username: "Praveen",
+      password: "123"
     }
   ];
 
