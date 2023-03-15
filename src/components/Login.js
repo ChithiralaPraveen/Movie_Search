@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { Navigate,Route } from 'react-router-dom';
+import { Navigate, Route } from 'react-router-dom';
 
 
 import "./style.css";
 
 function Login() {
+
   // React States
   const [errorMessages, setErrorMessages] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -14,6 +15,10 @@ function Login() {
     {
       username: "user1",
       password: "pass1"
+    },
+    {
+      username: "admin",
+      password: "admin123"
     },
     {
       username: "user2",
@@ -40,14 +45,21 @@ function Login() {
       if (userData.password !== pass.value) {
         // Invalid password
         setErrorMessages({ name: "pass", message: errors.pass });
+        localStorage.setItem('isLoggedIn', 'False');
+        localStorage.setItem('Username', 'Guest');
       } else {
         setIsSubmitted(true);
-<Route path="/MovieDashboard" element={ <Navigate to="/error-page" /> } />
+        // To store user logged in or not
+        localStorage.setItem('isLoggedIn', 'True');
+        localStorage.setItem('Username', uname.value);
+        <Route path="/MovieDashboard" element={<Navigate to="/error-page" />} />
 
       }
     } else {
       // Username not found
       setErrorMessages({ name: "uname", message: errors.uname });
+      localStorage.setItem('Username', 'Guest');
+      localStorage.setItem('isLoggedIn', 'False');
     }
   };
 
@@ -57,9 +69,9 @@ function Login() {
       <div className="error">{errorMessages.message}</div>
     );
 
-    const renderSuccess = (
-      <div>User is successfully logged in</div>
-    )
+  const renderSuccess = (
+    <div>User is successfully logged in</div>
+  )
 
   // JSX code for login form
   const renderForm = (
